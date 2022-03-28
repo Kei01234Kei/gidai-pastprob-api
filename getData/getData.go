@@ -8,9 +8,10 @@ import (
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
-	_ "github.com/go-sql-driver/mysql"
-	"github.com/jinzhu/gorm"
 	"github.com/joho/godotenv"
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
+	"gorm.io/gorm/schema"
 )
 
 type QueryParams struct {
@@ -66,12 +67,15 @@ func GetDataFromDB(queryParams QueryParams) (Response, error) {
 			log.Fatal(err)
 		}
 	}
-	db, err := gorm.Open("mysql", os.Getenv("DB_ROLE")+":"+os.Getenv("DB_PASSWORD")+"@tcp("+os.Getenv("DB_HOST")+":3306)/"+os.Getenv("DB_NAME")+"?charset=utf8&parseTime=true&loc=Asia%2FTokyo")
+	dsn := os.Getenv("DB_ROLE")+":"+os.Getenv("DB_PASSWORD")+"@tcp("+os.Getenv("DB_HOST")+":3306)/"+os.Getenv("DB_NAME")+"?charset=utf8&parseTime=true&loc=Asia%2FTokyo"
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
+		NamingStrategy: schema.NamingStrategy{
+			SingularTable: true,
+		},
+	})
 	if err != nil {
 		log.Fatal(err)
 	}
-	db.SingularTable(true)
-	defer db.Close()
 	probInformation := []*ProbInformation{}
 	error := db.Where("faculty = ? AND department = ? AND course = ?", queryParams.Faculty, queryParams.Department, queryParams.Course).Find(&probInformation).Error
 	if error != nil {
