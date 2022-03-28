@@ -67,7 +67,7 @@ func GetDataFromDB(queryParams QueryParams) (Response, error) {
 			log.Fatal(err)
 		}
 	}
-	dsn := os.Getenv("DB_ROLE")+":"+os.Getenv("DB_PASSWORD")+"@tcp("+os.Getenv("DB_HOST")+":3306)/"+os.Getenv("DB_NAME")+"?charset=utf8&parseTime=true&loc=Asia%2FTokyo"
+	dsn := os.Getenv("DB_ROLE") + ":" + os.Getenv("DB_PASSWORD") + "@tcp(" + os.Getenv("DB_HOST") + ":3306)/" + os.Getenv("DB_NAME") + "?charset=utf8&parseTime=true&loc=Asia%2FTokyo"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
 		NamingStrategy: schema.NamingStrategy{
 			SingularTable: true,
