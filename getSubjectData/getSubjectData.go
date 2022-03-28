@@ -19,10 +19,10 @@ type QueryParams struct {
 }
 
 type SubjectInformation struct {
-	SubjectName   string    `json:"subjectName" gorm:"column:subjectName"`
-	YearOfStudent int       `json:"yearOfStudent" gorm:"column:yearOfStudent"`
-	Semester      string    `json:"semester" gorm:"column:semester"`
-	Teacher       string    `json:"teacher" gorm:"column:teacher"`
+	SubjectName   string `json:"subjectName" gorm:"column:subjectName"`
+	YearOfStudent int    `json:"yearOfStudent" gorm:"column:yearOfStudent"`
+	Semester      string `json:"semester" gorm:"column:semester"`
+	Teacher       string `json:"teacher" gorm:"column:teacher"`
 }
 
 type Response struct {
