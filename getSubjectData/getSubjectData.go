@@ -10,7 +10,6 @@ import (
 	"github.com/joho/godotenv"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
-	// "gorm.io/gorm/schema"
 )
 
 type QueryParams struct {
@@ -59,11 +58,7 @@ func GetSubjectDataFromDB(queryParams QueryParams) (Response, error) {
 		}
 	}
 	dsn := os.Getenv("DB_ROLE") + ":" + os.Getenv("DB_PASSWORD") + "@tcp(" + os.Getenv("DB_HOST") + ":3306)/" + os.Getenv("DB_NAME") + "?charset=utf8&parseTime=true&loc=Asia%2FTokyo"
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
-		// NamingStrategy: schema.NamingStrategy{
-		// 	SingularTable: true,
-		// },
-	})
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		log.Fatal(err)
 	}
