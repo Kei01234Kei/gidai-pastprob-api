@@ -19,8 +19,15 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/sso v1.11.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/sts v1.16.0 // indirect
 	github.com/aws/smithy-go v1.11.1 // indirect
+	github.com/go-sql-driver/mysql v1.6.0 // indirect
+	github.com/jinzhu/gorm v1.9.16 // indirect
+	github.com/jinzhu/inflection v1.0.0 // indirect
+	github.com/jinzhu/now v1.1.5 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
+	github.com/joho/godotenv v1.4.0 // indirect
 	github.com/stretchr/testify v1.7.1 // indirect
 	golang.org/x/net v0.0.0-20220225172249-27dd8689420f // indirect
 	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b // indirect
+	gorm.io/driver/mysql v1.3.2 // indirect
+	gorm.io/gorm v1.23.3 // indirect
 )
