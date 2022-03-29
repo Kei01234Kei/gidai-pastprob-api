@@ -1,5 +1,13 @@
 # gidai-pastprob-api
 
+## プログラムについて
+
+getSubjectData.goではfaculty（学部）、department（学科）、course（コース）の3つのクエリパラメータを使ってDBを検索し、subjectName（教科名）、yearOfStudent（学年）、semester（学期）、teacher（先生）の4つのデータを返す。
+
+getData.goではfaculty（学部）、department（学科）、course（コース）の3つのクエリパラメータを使ってDBを検索し、テーブル情報全てを返す。
+
+## DBテーブルについて
+
 gidai-pastprob-apiを作成するにあたって、画像の保存にはAWS S3を、画像の基本情報とS3のオブジェクトURLの紐付けにはAWS RDS(My SQL)を使用する。
 下の表がRDSのテーブル構造である。
 
