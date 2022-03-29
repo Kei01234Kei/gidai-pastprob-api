@@ -2,9 +2,11 @@
 
 ## プログラムについて
 
-getSubjectData.goではfaculty（学部）、department（学科）、course（コース）の3つのクエリパラメータを使ってDBを検索し、subjectName（教科名）、yearOfStudent（学年）、semester（学期）、teacher（先生）の4つのデータを返す。
+`getData.go`ではfaculty(学部)、department(学科)、course(コース)の3つのクエリパラメータを使ってDBを検索し、テーブル情報全てを返す。
 
-getData.goではfaculty（学部）、department（学科）、course（コース）の3つのクエリパラメータを使ってDBを検索し、テーブル情報全てを返す。
+`getSubjectData.go`ではfaculty(学部)、department(学科)、course(コース)の3つのクエリパラメータを使ってDBを検索し、subjectName(教科名)、yearOfStudent(学年)、semester(学期)、teacher(先生)の4つのデータを返す。
+
+`getProblemData.go`ではsubjectName(教科名)、yearOfStudent(学年)、semester(学期)、teacher(先生)の4つのクエリパラメータを使ってDBを検索し、iamgeURL(画像のオブジェクトURL)、yearOfTest(テストの実施年)の2つのデータを返す。
 
 ## DBテーブルについて
 
