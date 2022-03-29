@@ -18,7 +18,7 @@ type QueryParams struct {
 	Course     string `json:"course"`
 }
 
-type SubjectInformation struct {
+type SubjectData struct {
 	SubjectName   string `json:"subjectName" gorm:"column:subjectName"`
 	YearOfStudent int    `json:"yearOfStudent" gorm:"column:yearOfStudent"`
 	Semester      string `json:"semester" gorm:"column:semester"`
@@ -62,12 +62,12 @@ func GetSubjectDataFromDB(queryParams QueryParams) (Response, error) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	subjectInformation := []*SubjectInformation{}
-	error := db.Table("prob_information").Distinct("subjectName", "yearOfStudent", "semester", "teacher").Where("faculty = ? AND department = ? AND course = ?", queryParams.Faculty, queryParams.Department, queryParams.Course).Find(&subjectInformation).Error
+	subjectData := []*SubjectData{}
+	error := db.Table("prob_information").Distinct("subjectName", "yearOfStudent", "semester", "teacher").Where("faculty = ? AND department = ? AND course = ?", queryParams.Faculty, queryParams.Department, queryParams.Course).Find(&subjectData).Error
 	if error != nil {
 		log.Fatal(error)
 	}
-	data, _ := json.Marshal(subjectInformation)
+	data, _ := json.Marshal(subjectData)
 	return Response{
 		Data: string(data),
 	}, nil
